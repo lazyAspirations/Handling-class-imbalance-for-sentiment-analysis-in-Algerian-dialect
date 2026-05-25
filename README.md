@@ -26,14 +26,15 @@ Remédier au déséquilibre entre les classes `Positive` (47,7 %), `Negative` (2
 
 ### 1. Installation des dépendances
 
-```bash
 pip install transformers datasets torch scikit-learn imbalanced-learn sentencepiece
+
 2. Téléchargement du corpus
 Le corpus TWIFL est disponible sur HuggingFace :
 
 python
 from datasets import load_dataset
 dataset = load_dataset("arbml/Twifil")
+
 3. Prétraitement
 Exécutez le pipeline décrit dans le rapport :
 
@@ -50,7 +51,7 @@ Conservation du code‑switching (arabe/français)
 Suppression des tweets de moins de 2 mots
 
 4. Fine‑tuning de DziriBERT (baseline)
-python
+
 from transformers import AutoModelForSequenceClassification, Trainer, TrainingArguments
 
 model = AutoModelForSequenceClassification.from_pretrained("alger-ia/dziribert", num_labels=3)
@@ -64,6 +65,7 @@ training_args = TrainingArguments(
 )
 trainer = Trainer(model=model, args=training_args, train_dataset=train_dataset, eval_dataset=eval_dataset)
 trainer.train()
+
 5. Appliquer une stratégie
 Focal Loss : utilisez FocalLoss personnalisée avec gamma=2.
 

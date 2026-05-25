@@ -1,0 +1,14 @@
+torch
+numpy
+pandas
+matplotlib
+seaborn
+emoji
+wordcloud
+datasets
+transformers
+evaluate
+accelerate
+imbalanced-learn
+sentencepiece
+scikit-learn
